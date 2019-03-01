@@ -6,19 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Londrina+Solid|Luckiest+Guy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Aldrich|Audiowide|Press+Start+2P" rel="stylesheet">
     <!-- favicon -->
-    <!-- <link rel="shortcut icon" href="../unit-4-game/assets/images/favicon.ico" type="image/x-icon"> -->
-    <!-- animate css cdn -->
+    <link rel="shortcut icon" href="../TriviaGame/assets/images/overatch-favicon.ico" type="image/x-icon">
+    <!-- animate css and bootstrap cdn's -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-    <!-- reset and styling -->
-    <!-- <link rel="stylesheet" href="assets\css\reset.css"> -->
+    <!-- my styesheet -->
     <link rel="stylesheet" href="assets\css\style.css">
 
-    <title>Trivia!</title>
+    <title>Overwatch Trivia</title>
 </head>
 
 <body>
+    <nav class="navbar fixed-top navbar-dark bg-dark">
+
+        <a class="navbar-brand dark" href="https://playoverwatch.com/en-us/" target="_blank">
+            <img src="../TriviaGame/assets/images/Overwatch_logo.jpg" class="d-inline-block align-top" alt="overwatch logo">
+        </a>
+
+        <p class="mx-auto">Overwatch Trivia Time!</p>
+
+    </nav>
+
+    <section class="wrapper">	
+
+        <div id="timer"></div>
+
+        <div id="questionDisplay"></div>
+
+        <div id="answerDisplay"></div>
+          <button class="btn btn-warning" id ="start">Start Game</button><br>
+          <button class="btn btn-danger" id="reset">Play Again?</button>
+          
+    </section>
 
 
     <!-- link to my javascript and the jQuery library -->

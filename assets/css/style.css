@@ -1,0 +1,31 @@
+/* Google fonts */
+
+/* font-family: 'Audiowide', cursive;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Aldrich', sans-serif; */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/genji-theatrical-wide.jpg);
+    background-size: cover;
+}
+
+.navbar {
+
+}
+
+.navbar p {
+    color:#FF7C2D;
+    font-size: 32px;
+    align-self: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.navbar img {
+    width: 30px; 
+    height: 30px;
+    border-radius: 7%;
+}
