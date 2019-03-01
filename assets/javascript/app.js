@@ -60,7 +60,7 @@ $(document).ready(function() {
     var intervalId;
 
   // variables for keeping track of player choices and some empty arrays for pushing choices into
-    var 
+    var questionHolder = [];
 
 
 // ====================FUNCTIONS===================
@@ -71,11 +71,6 @@ $(document).ready(function() {
 
 
 //
-
-
-
-
-
 
 
 
