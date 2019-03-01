@@ -14,20 +14,21 @@ body {
 }
 
 .navbar {
-
+    height: 75px;
 }
 
 .navbar p {
     color:#FF7C2D;
     font-size: 32px;
-    align-self: center;
     font-family: 'Press Start 2P', cursive;
+    padding-right: 70px;
+    padding-top: 16px;
 }
 
 .navbar img {
     width: 30px; 
     height: 30px;
-    border-radius: 7%;
+    border-radius: 50%;
 }
 
 .jumbotron {
@@ -47,4 +48,24 @@ body {
     color: black;
     font-family: 'Press Start 2P', cursive;
     font-size: 18px;
+}
+
+/* a couple media queries for responsiveness */
+
+@media only screen and (max-width:768px) {
+    
+    .navbar p {
+        font-size: 24px;
+        padding-right: 25px;
+    }
+    
+}
+
+@media only screen and (max-width:640px) {
+
+    .navbar p {
+        font-size: 20px;
+        padding-right: 0px;
+    }
+     
 }
