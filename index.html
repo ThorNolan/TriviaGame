@@ -19,27 +19,35 @@
 </head>
 
 <body>
+    
     <nav class="navbar fixed-top navbar-dark bg-dark">
 
-        <a class="navbar-brand dark" href="https://playoverwatch.com/en-us/" target="_blank">
-            <img src="../TriviaGame/assets/images/Overwatch_logo.jpg" class="d-inline-block align-top" alt="overwatch logo">
+        <a class="navbar-brand dark navbar-collapse" href="https://playoverwatch.com/en-us/" target="_blank"><img src="../TriviaGame/assets/images/Overwatch_logo.jpg" class="d-inline-block align-top" alt="overwatch logo">
         </a>
 
         <p class="mx-auto">Overwatch Trivia Time!</p>
-
+        
     </nav>
 
-    <section class="wrapper">	
+    <div class="jumbotron dark mx-auto">
 
         <div id="timer"></div>
 
-        <div id="questionDisplay"></div>
+        <div class="container">
 
-        <div id="answerDisplay"></div>
-          <button class="btn btn-warning" id ="start">Begin</button><br>
-          <button class="btn btn-danger" id="reset">Restart!</button>
+            <h1 class="display-4" id="questionDisplay"></h1>
 
-    </section>
+            <div class="lead" id="answerDisplay"></div>
+
+            <button class="btn btn-primary" id ="start">Begin</button>
+
+            <br>
+
+            <button class="btn btn-primary" id="reset">Try Again!</button>
+
+        </div>
+
+    </div>
 
 
     <!-- link to my javascript and the jQuery library -->
