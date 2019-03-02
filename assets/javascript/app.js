@@ -40,7 +40,7 @@ $(document).ready(function() {
         gif: "assets/images/mei-bye.gif"},
 
         {question: "Sombra's name means ____ in spanish.",
-        choices: ["'assassin", "'infiltrator'", "'hacker'", "'shadow'"],
+        choices: ["'assassin'", "'infiltrator'", "'hacker'", "'shadow'"],
         correctIndex: 3,
         gif: "assets/images/sombra-wave.gif"},
 
@@ -52,12 +52,13 @@ $(document).ready(function() {
     ];
 
   // variables relating to my timer and its' functionality
-    var timer = 21;
+    var timer = 16;
     var timerRunning = false;
     var intervalId;
 
   // variables for keeping track of player choices and some empty arrays for pushing the players' choices into
     var questionHolder = [];
+    var emptyArray = [];
     var playerSelection = "";
     var randomSelection;
     var randomIndex;
@@ -87,6 +88,8 @@ $(document).ready(function() {
         if (timer === 0) {
             stopTimer();
             unanswered++;
+            $("#answersDisplay").html("<p>Not quite... the answer is: " + randomSelection.choices[randomSelection.correctIndex] + "</p>");
+            gifResponse();
         }
     }
 
@@ -100,11 +103,24 @@ $(document).ready(function() {
 
         // loop over my answers array and display each one as an option
         for (var i=0; i < randomSelection.choices.length; i++) {
-            var playerChoice = $("<p>");
+            var playerChoice = $("<div>");
             playerChoice.html(randomSelection.choices[i]);
             $("#answersDisplay").append(playerChoice);
+            // I have to give my playerChoice an array position so that I can check it against the right answer in my on-click function later
+            playerChoice.attr("arrayPosition", i)
+            playerChoice.addClass("choice");
         }
     }
+
+  // function that shows the appropriate gif based on the random question and then
+    function gifResponse() {
+        $("#answersDisplay").append("<img src=" + randomSelection.gif + ">");
+        // remove the question that was asked from my questions array so that the game always asks a new question
+        emptyArray.push()
+        questions.splice(randomSelection, 1);
+
+
+    }  
 
 // =====================GAMEPLAY=====================
 
@@ -112,7 +128,7 @@ $(document).ready(function() {
     $("#tryAgain").hide();
 
 
-  // function to  hide the image and button when clicked and start my timer counting down
+  // function to hide the image and button when clicked and start my timer counting down
     $("#begin").on("click", function() {
         startTimer();
         displayRandom();
@@ -125,5 +141,32 @@ $(document).ready(function() {
         }
     });
 
+  // on click function that checks the player's choice
+    $(".choice").on("click", function() {
+        playerSelection = parseInt($(this).attr("arrayPosition"));
+
+        // check answer from the on click event against my questions array and adjust the player's score accordingly
+
+        //also updates the html to tell the player whether they got the answer right or not, and run my function that displays the right gif
+        
+        if (playerSelection === randomSelection.correctIndex) {
+
+            correct++;
+            stopTimer();
+            playerSelection= "";
+            $("#answersDisplay").html("<p>You got it right!</p>");
+            gifResponse();
+
+        } else {
+            incorrect++;
+            stopTimer();
+            playerSelection = "";
+            $("#answersDisplay").html("<p>Not quite... the answer is: " + randomSelection.choices[randomSelection.correctIndex] + "</p>")
+            gifResponse();
+        }
+
+    });
+
+ 
 
 });

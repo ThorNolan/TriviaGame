@@ -73,12 +73,17 @@ body {
 h1 {
     color: white;
     font-family: 'Aldrich', sans-serif;
+    font-size: 42px;
 }
 
-p {
+#answersDisplay {
     color: white;
     font-family: 'Aldrich', sans-serif;
-    font-size: 18px;
+    font-size: 26px;
+}
+
+.choice {
+    padding: 15px;
 }
 
 /* stylings for my timer and gifs  */
@@ -88,6 +93,11 @@ p {
     font-family: 'Press Start 2P', cursive;
     color: #FF7C2D;
     padding-top: 25px;
+}
+
+#answersDisplay img {
+    width: 400px;
+    height: auto;
 }
 
 
