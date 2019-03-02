@@ -14,7 +14,7 @@ $(document).ready(function() {
         gif: "assets/images/tracer-juke.gif"},
 
         {question: "Which of the following is NOT one of McCree's voice lines?",
-        choices: ["It's your funeral.", "It's high noon!", "I'm your Huckleberry.", "This town ain't big enough for the two of us."],
+        choices: ["It's your funeral.", "It's high noon!", "I'm your Huckleberry.", "This town ain't big enough for the two of us!"],
         correctIndex: 3,
         gif: "assets/images/mccree-sextuple.gif"},
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
 
 
   // variables relating to my timer and its' functionality
-    var timer = 25;
+    var timer = 10;
     var timerRunning = false;
     var intervalId;
 
@@ -120,21 +120,21 @@ $(document).ready(function() {
         $("#answersDisplay").append("<img src=" + randomSelection.gif + ">");
 
         // remove the question that was asked from my questions array so that the game always asks a new question
-        emptyArray.push()
-        questions.splice(randomSelection, 1);
+        emptyArray.push(randomSelection)
+        questions.splice(randomIndex, 1);
 
         var timeout = setTimeout(function() {
             $("#answersDisplay").empty();
-            timer= 25;
+            timer= 10;
 
         // check to see if every question has been shown, then show player their score, and show my try again button
         if((correct + incorrect + unanswered) === numQuestions) {
             //update my displays 
             $("#questionDisplay").empty();
             $("#questionDisplay").html("<h2> Your final score: </h2>");
-            $("#answerDisplay").append("<h3> Correct: " + correct + "</h3>");
-            $("#answerDisplay").append("<h3> Incorrect: " + incorrect + "</h3>");
-            $("#answerDisplay").append("<h3> Unanswered: " + unanswered + "</h3>");
+            $("#answersDisplay").append("<h3> Correct: " + correct + "</h3>");
+            $("#answersDisplay").append("<h3> Incorrect: " + incorrect + "</h3>");
+            $("#answersDisplay").append("<h3> Unanswered: " + unanswered + "</h3>");
 
             $("#tryAgain").show();
 
@@ -173,23 +173,26 @@ $(document).ready(function() {
   // reset button that displays at the end of the game
   
     $("#tryAgain").on("click", function() {
-	    $("#tryAgain").hide();
+
 	    $("#answersDisplay").empty();
-	    $("#questionDisplay").empty();
+        $("#questionDisplay").empty();
+        $("#tryAgain").hide()
+
+        // put all the questions back in my questionsHolder array so the game restarts
 	    for(var i = 0; i < questionHolder.length; i++) {
 		    questions.push(questionHolder[i]);
 	}
-	    runTimer();
-	    displayQuestion();
+	    startTimer();
+	    displayRandom();
 
 })  
 
   // on click function that checks the player's choice
-    $(".choice").on("click", function() {
+    $(document).on("click", ".choice", function() {
+        // gets the location of the right answer so I can compare it
         playerSelection = parseInt($(this).attr("arrayPosition"));
 
         // check answer from the on click event against my questions array and adjust the player's score accordingly
-
         //also updates the html to tell the player whether they got the answer right or not, and run my function that displays the right gif
         
         if (playerSelection === randomSelection.correctIndex) {
@@ -201,6 +204,7 @@ $(document).ready(function() {
             gifResponse();
 
         } else {
+
             incorrect++;
             stopTimer();
             playerSelection = "";

@@ -39,7 +39,7 @@ body {
     background-color: rgb(38, 38, 38);
     background-color: rgba(38, 38, 38, 0.85);
     width: 90%;
-    height: 600px;
+    height: 700px;
     position: relative;
     padding: 0;
     text-align: center;
@@ -86,8 +86,8 @@ h1 {
 }
 
 .choice {
-    padding: 15px;
-    margin: 15px;
+    padding: 10px;
+    margin: 10px;
     border-radius: 2%;
     width: 250px;
     text-align: center;
