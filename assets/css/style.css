@@ -70,6 +70,17 @@ body {
     margin-top: 100px;
 }
 
+h1 {
+    color: white;
+    font-family: 'Aldrich', sans-serif;
+}
+
+p {
+    color: white;
+    font-family: 'Aldrich', sans-serif;
+    font-size: 18px;
+}
+
 /* stylings for my timer and gifs  */
 
 #timer p {

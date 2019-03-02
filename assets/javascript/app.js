@@ -59,7 +59,7 @@ $(document).ready(function() {
   // variables for keeping track of player choices and some empty arrays for pushing the players' choices into
     var questionHolder = [];
     var playerSelection = "";
-    var randomSelection = Math.floor(Math.random(questions.length));
+    var randomSelection;
     var randomIndex;
 
 
@@ -92,9 +92,18 @@ $(document).ready(function() {
 
   //  function to display one of the questions on the screen after the #begin button has been clicked
   
-    function randomQuestion() {
-        randomIndex = questions[randomSelection];
+    function displayRandom() {
+        // get a random question and then display it on the page at #questionDisplay
+        randomIndex = Math.floor(Math.random()*questions.length)
+        randomSelection = questions[randomIndex];
+        $("#questionDisplay").html(randomSelection.question);
 
+        // loop over my answers array and display each one as an option
+        for (var i=0; i < randomSelection.choices.length; i++) {
+            var playerChoice = $("<p>");
+            playerChoice.html(randomSelection.choices[i]);
+            $("#answersDisplay").append(playerChoice);
+        }
     }
 
 // =====================GAMEPLAY=====================
@@ -106,10 +115,15 @@ $(document).ready(function() {
   // function to  hide the image and button when clicked and start my timer counting down
     $("#begin").on("click", function() {
         startTimer();
+        displayRandom();
         $(".zenOpener").hide();
         $("#begin").hide();
-    });
 
+        // fill my question holder array with each question
+        for (var i=0; i < questions.length; i++) {
+            questionHolder.push(questions[i]);
+        }
+    });
 
 
 });
