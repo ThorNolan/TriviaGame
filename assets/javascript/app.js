@@ -54,7 +54,7 @@ $(document).ready(function() {
 
 
   // variables relating to my timer and its' functionality
-    var timer = 16;
+    var timer = 25;
     var timerRunning = false;
     var intervalId;
 
@@ -84,12 +84,13 @@ $(document).ready(function() {
 
   // function to display the timer at my #timer div and update it as it counts down to 0 at the interval I set in startTimer()
     function counter() {
-        timer--;
         $("#timer").html("<p>" + timer + "</p>");
+        timer--;
 
         if (timer === 0) {
             stopTimer();
             unanswered++;
+            // check what the right answer is and display it if the player got it wrong
             $("#answersDisplay").html("<p>Not quite... the answer is: " + randomSelection.choices[randomSelection.correctIndex] + "</p>");
             gifResponse();
         }
@@ -103,14 +104,14 @@ $(document).ready(function() {
         randomSelection = questions[randomIndex];
         $("#questionDisplay").html(randomSelection.question);
 
-        // loop over my answers array and display each one as an option
+        // loop over my answers array and display each one as an option button that can be clicked
         for (var i=0; i < randomSelection.choices.length; i++) {
-            var playerChoice = $("<div>");
-            playerChoice.html(randomSelection.choices[i]);
-            $("#answersDisplay").append(playerChoice);
+            var playerChoices = $("<button>");
+            playerChoices.html(randomSelection.choices[i]);
+            $("#answersDisplay").append(playerChoices);
             // I have to give my playerChoice an array position so that I can check it against the right answer in my on-click function later
-            playerChoice.attr("arrayPosition", i)
-            playerChoice.addClass("choice");
+            playerChoices.attr("arrayPosition", i)
+            playerChoices.addClass("choice");
         }
     }
 
@@ -124,7 +125,7 @@ $(document).ready(function() {
 
         var timeout = setTimeout(function() {
             $("#answersDisplay").empty();
-            timer= 16;
+            timer= 25;
 
         // check to see if every question has been shown, then show player their score, and show my try again button
         if((correct + incorrect + unanswered) === numQuestions) {
@@ -171,12 +172,12 @@ $(document).ready(function() {
 
   // reset button that displays at the end of the game
   
-    $("#reset").on("click", function() {
-	    $("#reset").hide();
-	    $("#answerblock").empty();
-	    $("#questionblock").empty();
-	    for(var i = 0; i < holder.length; i++) {
-		    options.push(holder[i]);
+    $("#tryAgain").on("click", function() {
+	    $("#tryAgain").hide();
+	    $("#answersDisplay").empty();
+	    $("#questionDisplay").empty();
+	    for(var i = 0; i < questionHolder.length; i++) {
+		    questions.push(questionHolder[i]);
 	}
 	    runTimer();
 	    displayQuestion();

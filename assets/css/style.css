@@ -47,7 +47,7 @@ body {
     margin-top: 100px;
 }
 
-.jumbotron button {
+.jumbotron .btn {
     background-color: #FF7C2D;
     color: black;
     font-family: 'Press Start 2P', cursive;
@@ -73,7 +73,10 @@ body {
 h1 {
     color: white;
     font-family: 'Aldrich', sans-serif;
-    font-size: 42px;
+}
+
+.display-4 {
+    font-size: 36px;
 }
 
 #answersDisplay {
@@ -84,6 +87,13 @@ h1 {
 
 .choice {
     padding: 15px;
+    margin: 15px;
+    border-radius: 2%;
+    width: 250px;
+    text-align: center;
+    background: #FF7C2d;
+    color: black;
+    border: 0.5px black;
 }
 
 /* stylings for my timer and gifs  */
