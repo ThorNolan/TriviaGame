@@ -52,6 +52,7 @@ body {
     color: black;
     font-family: 'Press Start 2P', cursive;
     font-size: 18px;
+    margin-top: 25px;
 }
 
 #start {
@@ -63,7 +64,7 @@ body {
 }
 
 .zenOpener {
-    border-radius: 35%;
+    border-radius: 25%;
     width: 35%;
     height: auto;
     margin-top: 100px;
@@ -71,13 +72,11 @@ body {
 
 /* stylings for my timer and gifs  */
 
-#timer {
-    
-}
-
 #timer p {
     font-size: 42px;
-    margin: auto;
+    font-family: 'Press Start 2P', cursive;
+    color: #FF7C2D;
+    padding-top: 25px;
 }
 
 

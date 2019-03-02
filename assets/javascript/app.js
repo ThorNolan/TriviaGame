@@ -5,7 +5,7 @@ $(document).ready(function() {
     var correct = 0;
     var incorrect = 0;
     var unanswered = 0;
-    var numQestions = questions.length;
+    //var numQestions = questions.length;
 
     var questions = [
         // each question has 4 components: the question itself, an array with the 4 different choices, the index of the right answer, and the gif I have in my assets folder that's associated with it
@@ -52,14 +52,15 @@ $(document).ready(function() {
     ];
 
   // variables relating to my timer and its' functionality
-    var timer = 30;
+    var timer = 21;
     var timerRunning = false;
     var intervalId;
 
   // variables for keeping track of player choices and some empty arrays for pushing the players' choices into
     var questionHolder = [];
     var playerSelection = "";
-    var randomSelection = "";
+    var randomSelection = Math.floor(Math.random(questions.length));
+    var randomIndex;
 
 
 // ====================FUNCTIONS===================
@@ -79,27 +80,34 @@ $(document).ready(function() {
     }
 
   // function to display the timer at my #timer div and update it as it counts down to 0 at the interval I set in startTimer()
-  function counter() {
-    timer--;
-    $("#timer").html("<p>" + timer + "</p>");
+    function counter() {
+        timer--;
+        $("#timer").html("<p>" + timer + "</p>");
 
-    if (timer === 0) {
-        stopTimer();
-        unanswered++;
+        if (timer === 0) {
+            stopTimer();
+            unanswered++;
+        }
     }
-  }
-  
 
+  //  function to display one of the questions on the screen after the #begin button has been clicked
+  
+    function randomQuestion() {
+        randomIndex = questions[randomSelection];
+
+    }
 
 // =====================GAMEPLAY=====================
 
   // hide my reset button at the beginning of the game
-    $("#tryAgain")
+    $("#tryAgain").hide();
 
 
-  // function to start my timer and attach it to my #begin button
+  // function to  hide the image and button when clicked and start my timer counting down
     $("#begin").on("click", function() {
-        startTimer;
+        startTimer();
+        $(".zenOpener").hide();
+        $("#begin").hide();
     });
 
 
