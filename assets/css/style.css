@@ -30,7 +30,7 @@ body {
 .navbar img {
     width: 30px; 
     height: 30px;
-    border-radius: 50%;
+    border-radius: 100%;
 }
 
 /* main content/jumbotron styling */
@@ -62,12 +62,25 @@ body {
     margin-top: 55px;
 }
 
-.jumbotron img {
-    border-radius: 12%;
+.zenOpener {
+    border-radius: 35%;
     width: 35%;
     height: auto;
     margin-top: 100px;
 }
+
+/* stylings for my timer and gifs  */
+
+#timer {
+    
+}
+
+#timer p {
+    font-size: 42px;
+    margin: auto;
+}
+
+
 
 /* a couple media queries for responsiveness */
 
