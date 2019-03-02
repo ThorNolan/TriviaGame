@@ -5,7 +5,6 @@ $(document).ready(function() {
     var correct = 0;
     var incorrect = 0;
     var unanswered = 0;
-    //var numQestions = questions.length;
 
     var questions = [
         // each question has 4 components: the question itself, an array with the 4 different choices, the index of the right answer, and the gif I have in my assets folder that's associated with it
@@ -47,9 +46,12 @@ $(document).ready(function() {
         {question: "How much damage does the quick melee ability do (excluding Reinhardt and Brigitte!)?",
         choices: ["30 damage", "60 damage", "100 damage", "25 damage"],
         correctIndex: 0,
-        gif: "assets/images/friendship.gif"},
+        gif: "assets/images/friendship.gif"}
 
     ];
+
+    var numQuestions = questions.length;
+
 
   // variables relating to my timer and its' functionality
     var timer = 16;
@@ -115,10 +117,36 @@ $(document).ready(function() {
   // function that shows the appropriate gif based on the random question and then
     function gifResponse() {
         $("#answersDisplay").append("<img src=" + randomSelection.gif + ">");
+
         // remove the question that was asked from my questions array so that the game always asks a new question
         emptyArray.push()
         questions.splice(randomSelection, 1);
 
+        var timeout = setTimeout(function() {
+            $("#answersDisplay").empty();
+            timer= 16;
+
+        // check to see if every question has been shown, then show player their score, and show my try again button
+        if((correct + incorrect + unanswered) === numQuestions) {
+            //update my displays 
+            $("#questionDisplay").empty();
+            $("#questionDisplay").html("<h2> Your final score: </h2>");
+            $("#answerDisplay").append("<h3> Correct: " + correct + "</h3>");
+            $("#answerDisplay").append("<h3> Incorrect: " + incorrect + "</h3>");
+            $("#answerDisplay").append("<h3> Unanswered: " + unanswered + "</h3>");
+
+            $("#tryAgain").show();
+
+            correct = 0;
+            incorrect = 0;
+            unanswered = 0;
+            
+
+        } else {
+            startTimer();
+            displayRandom();
+        }
+        }, 3000);
 
     }  
 
@@ -140,6 +168,20 @@ $(document).ready(function() {
             questionHolder.push(questions[i]);
         }
     });
+
+  // reset button that displays at the end of the game
+  
+    $("#reset").on("click", function() {
+	    $("#reset").hide();
+	    $("#answerblock").empty();
+	    $("#questionblock").empty();
+	    for(var i = 0; i < holder.length; i++) {
+		    options.push(holder[i]);
+	}
+	    runTimer();
+	    displayQuestion();
+
+})  
 
   // on click function that checks the player's choice
     $(".choice").on("click", function() {
@@ -166,7 +208,5 @@ $(document).ready(function() {
         }
 
     });
-
- 
 
 });
