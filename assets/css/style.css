@@ -19,6 +19,10 @@ body {
     height: 75px;
 }
 
+.wrapper {
+    height: 90px;
+}
+
 .navbar p {
     color:#FF7C2D;
     font-size: 32px;
@@ -39,7 +43,7 @@ body {
     background-color: rgb(38, 38, 38);
     background-color: rgba(38, 38, 38, 0.85);
     width: 90%;
-    height: 700px;
+    height: 650px;
     position: relative;
     padding: 0;
     text-align: center;
@@ -47,7 +51,7 @@ body {
     margin-top: 100px;
 }
 
-.jumbotron .btn {
+#begin {
     background-color: #FF7C2D;
     color: black;
     font-family: 'Press Start 2P', cursive;
@@ -55,19 +59,23 @@ body {
     margin-top: 25px;
 }
 
-#start {
-    margin-top: 50px;
+#tryAgain {
+    background-color: #FF7C2D;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    margin-top: 25px;
 }
 
-#reset {
-    margin-top: 55px;
+.container {
+    margin-top: 15px;
 }
 
 .zenOpener {
     border-radius: 25%;
     width: 35%;
     height: auto;
-    margin-top: 100px;
+    margin-top: -50px;
 }
 
 h1 {
@@ -83,17 +91,18 @@ h1 {
     color: white;
     font-family: 'Aldrich', sans-serif;
     font-size: 26px;
+    margin-top: 45px;
 }
 
 .choice {
-    padding: 10px;
-    margin: 10px;
+    padding: 12px;
+    margin: 20px;
     border-radius: 2%;
     width: 250px;
     text-align: center;
     background: #FF7C2d;
     color: black;
-    border: 0.5px black;
+    border: 1px black;
 }
 
 /* stylings for my timer and gifs  */
@@ -106,7 +115,7 @@ h1 {
 }
 
 #answersDisplay img {
-    width: 400px;
+    width: 45%;
     height: auto;
 }
 

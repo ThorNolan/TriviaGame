@@ -123,7 +123,8 @@ $(document).ready(function() {
         emptyArray.push(randomSelection)
         questions.splice(randomIndex, 1);
 
-        var timeout = setTimeout(function() {
+        // adds a pause so you can actually watch the gif, some are sort of long
+        var gifTimeout = setTimeout(function() {
             $("#answersDisplay").empty();
             timer= 10;
 
@@ -147,7 +148,7 @@ $(document).ready(function() {
             startTimer();
             displayRandom();
         }
-        }, 3000);
+        }, 5400);
 
     }  
 
@@ -187,15 +188,20 @@ $(document).ready(function() {
 
 })  
 
-  // on click function that checks the player's choice
+  // on click function that checks the player's choice (had to switch this so it scanned the whole document to get it to work because they were dynamically updating)
     $(document).on("click", ".choice", function() {
         // gets the location of the right answer so I can compare it
         playerSelection = parseInt($(this).attr("arrayPosition"));
+
+        // an an amitate.css effect
+        $(this).addClass("animated flash faster");
 
         // check answer from the on click event against my questions array and adjust the player's score accordingly
         //also updates the html to tell the player whether they got the answer right or not, and run my function that displays the right gif
         
         if (playerSelection === randomSelection.correctIndex) {
+
+            window.setTimeout(function(){$(this).removeClass("animated flash faster");}, 500);
 
             correct++;
             stopTimer();
@@ -205,11 +211,13 @@ $(document).ready(function() {
 
         } else {
 
+            window.setTimeout(function(){$(this).removeClass("animated flash faster");}, 500);
             incorrect++;
             stopTimer();
             playerSelection = "";
             $("#answersDisplay").html("<p>Not quite... the answer is: " + randomSelection.choices[randomSelection.correctIndex] + "</p>")
             gifResponse();
+
         }
 
     });

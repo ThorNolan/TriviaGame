@@ -1,6 +1,7 @@
 Overwatch Trivia
 =======================================
 A timed trivia game I made for unit 5 of my full-stack coding bootcamp. The theme and questions are based on the game Overwatch!   
+![demo image](assets/images/trivia-cover.PNG)
 
 ## Technologies Used
 + Page elements and styling were done with HTML and CSS, and the game logic with Javascript. 
