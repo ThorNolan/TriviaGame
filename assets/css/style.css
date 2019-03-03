@@ -56,7 +56,7 @@ body {
     color: black;
     font-family: 'Press Start 2P', cursive;
     font-size: 18px;
-    margin-top: 25px;
+    margin-top: -22px;
 }
 
 #tryAgain {
@@ -98,7 +98,7 @@ h1 {
     padding: 12px;
     margin: 20px;
     border-radius: 2%;
-    width: 250px;
+    width: 20%;
     text-align: center;
     background: #FF7C2d;
     color: black;
@@ -124,6 +124,10 @@ h1 {
 /* a couple media queries for responsiveness */
 
 @media only screen and (max-width:768px) {
+
+    .display-4 {
+        font-size: 30px;
+    }
     
     .navbar p {
         font-size: 26px;
@@ -134,9 +138,17 @@ h1 {
 
 @media only screen and (max-width:640px) {
 
+    .display-4 {
+        font-size: 24px;
+    }
+
     .navbar p {
         font-size: 22px;
         padding-right: 0px;
+    }
+
+    #answersDisplay {
+        font-size: 20px;
     }
      
 }

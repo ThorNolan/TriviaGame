@@ -1,6 +1,6 @@
 Overwatch Trivia
 =======================================
-A timed trivia game I made for unit 5 of my full-stack coding bootcamp. The theme and questions are based on the game Overwatch!   
+A timed trivia game I made for my full-stack coding bootcamp. The theme and questions are based on the game Overwatch!   
 ![demo image](assets/images/trivia-cover.PNG)
 
 ## Technologies Used
@@ -12,7 +12,9 @@ A timed trivia game I made for unit 5 of my full-stack coding bootcamp. The them
 
 ## Gameplay
 
-1. Hit the "start" button and the first question will appear on the screen.
-2. You have 30 seconds to answer the question!
-3. The game will tell you if you got it right, or tell you the right answer if you get it wrong.
+1. Hit the button labelled "begin" and the first question will appear on the screen.
+2. You have 10 seconds to answer the question!
+3. The game will tell you if you got it right, or tell you the right answer if you got it wrong.
 4. You can see your total score at the end, and try again if you want :2nd_place_medal:.
+
+[Click here to play!](https://www.google.com "deployed game")

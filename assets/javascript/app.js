@@ -21,7 +21,7 @@ $(document).ready(function() {
         {question: "Zenyatta moves around by ____.",
         choices: ["levitating", "walking/running", "using psychic powers", "using magnetism"],
         correctIndex: 0,
-        gif: "assets/images/zen-walking.gif"},
+        gif: "assets/images/zen-levitating.gif"},
 
         {question: "The character Hammond is a sentient ____.",
         choices: ["Dog", "Human child", "Hamster", "Gorilla"],
@@ -128,14 +128,16 @@ $(document).ready(function() {
             $("#answersDisplay").empty();
             timer= 10;
 
-        // check to see if every question has been shown, then show player their score, and show my try again button
+        // check to see if every question has been shown, then show player their score, and show my try again button 
         if((correct + incorrect + unanswered) === numQuestions) {
             //update my displays 
             $("#questionDisplay").empty();
+
             $("#questionDisplay").html("<h2> Your final score: </h2>");
             $("#answersDisplay").append("<h3> Correct: " + correct + "</h3>");
             $("#answersDisplay").append("<h3> Incorrect: " + incorrect + "</h3>");
             $("#answersDisplay").append("<h3> Unanswered: " + unanswered + "</h3>");
+            $("#answersDisplay").append('<img src="../TriviaGame/assets/images/hammond-clapping.gif">');
 
             $("#tryAgain").show();
 
@@ -148,7 +150,8 @@ $(document).ready(function() {
             startTimer();
             displayRandom();
         }
-        }, 5400);
+        // give it a little timeout here 
+        }, 5000);
 
     }  
 
